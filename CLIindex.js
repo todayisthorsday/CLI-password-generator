@@ -26,7 +26,21 @@ const characters3 = [
 ];
 
 function generate() {
+    let length = 15;
+
+    const lengthIndex = userArgs.findIndex(arg => arg === "--length" || arg === "-l");
+    if (lengthIndex !== -1) {
+        const requestedLength = parseInt(userArgs[lengthIndex + 1]); // Validate length
+        
+        if (!isNaN(requestedLength) && requestedLength > 0) {
+            length = requestedLength;
+        } else {
+            console.log("Invalid length. Using default 15 characters.");
+        }
+    }
+
     let characters;
+
     if (userArgs.includes("--all") || userArgs.includes("-a")) {
         characters = characters3;
     } else if (userArgs.includes("--upper") || userArgs.includes("-u")) {
@@ -35,8 +49,8 @@ function generate() {
         characters = characters1;
     }
 
-    let passwordString = "";
-    for (let i = 0; i < 15; i++) {
+ let passwordString = "";
+    for (let i = 0; i < length; i++) { 
         const index = Math.floor(Math.random() * characters.length);
         passwordString += characters[index];
     }
@@ -46,12 +60,13 @@ function generate() {
 function printHelpMessage() {
     console.log()
     console.log("Password-generator usage options:");
-    console.log("  -h, --help        Print this message");
-    console.log("  -g, --generate    Generate a password");
+    console.log("  -h, --help          Print this message");
+    console.log("  -g, --generate      Generate a password");
+    console.log("  -l, --length <n>    Set password length (default: 15)"); 
     console.log()
     console.log("To increase password complexity please add one of the following to your command");  
-    console.log("  -u, --upper       Include uppercase characters");
-    console.log("  -a, --all         Include all characters (uppercase, numbers, symbols)");
+    console.log("  -u, --upper         Include uppercase characters");
+    console.log("  -a, --all           Include all characters (uppercase, numbers, symbols)");
     console.log()
 }
 
@@ -60,5 +75,5 @@ if (userArgs.includes("--help") || userArgs.includes("-h")) {
 } else if (userArgs.includes("--generate") || userArgs.includes("-g")) {
   generate();
 } else {
-  console.log("No valid arguments provided. Use `--help` for usage information.");
+  console.log("No valid arguments provided. Please use `--help` for usage information.");
 }
