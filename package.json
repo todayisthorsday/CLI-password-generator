@@ -1,0 +1,16 @@
+{
+  "name": "cli-password-generator-complex",
+  "version": "1.0.0",
+  "description": "A more robust verson of the  CLI password generator.",
+  "main": "CLIindex.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "cli",
+    "password",
+    "generator"
+  ],
+  "author": "Melanie Adams",
+  "license": "MIT"
+}
