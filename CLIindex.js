@@ -36,19 +36,34 @@ const characters = [
 
 // generate passwords function
 function generate() {
-  let passwordString = "";
-  for (let i = 0; i < 8; i++) {
-    let index = Math.floor(Math.random() * characters.length); // Random character index
-    passwordString += characters[index]; // Append random character to password
-  }
-  console.log(`Generated Password: ${passwordString}`);
+    let length = 8;
+
+    const lengthIndex = userArgs.findIndex(arg => arg === "--length" || arg === "-l");
+    if (lengthIndex !== -1) {
+        const requestedLength = parseInt(userArgs[lengthIndex + 1]); // Validate length
+        
+        if (!isNaN(requestedLength) && requestedLength > 0) {
+            length = requestedLength;
+        } else {
+            console.log("Invalid length. Using default 8 characters.");
+        }
+    }
+
+ let passwordString = "";
+    for (let i = 0; i < length; i++) { 
+        const index = Math.floor(Math.random() * characters.length);
+        passwordString += characters[index];
+    }
+    console.log(`Generated Password: ${passwordString}`);
 }
 
 function printHelpMessage() {
-  console.log("Usage: password-generator [options]");
-  console.log("Options:");
-  console.log("  -h, --help      Print this message");
-  console.log("  -g, --generate  Generate a new password");
+    console.log()
+    console.log("Password-generator usage options:");
+    console.log("  -h, --help          Print this message");
+    console.log("  -g, --generate      Generate a password");
+    console.log("  -l, --length <n>    Set password length (default: 8)"); 
+    console.log()
 }
 
 if (userArgs.includes("--generate") || userArgs.includes("-g")) {
