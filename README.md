@@ -20,32 +20,30 @@ A command-line tool to generate secure, customizable passwords. Perfect for secu
 ```bash
 npm install -g CLI-password-generator
 ```
-Via Git
+### Via Git
 ```bash
 git clone https://github.com/todayisthorsday/password-generator-cli.git
 cd password-generator-cli
 npm link
 ```
-Usage
-Basic Syntax
 
+## Usage
+### Basic Syntax
 ```bash
 password-generator --generate [options]
 ```
 
-Options
+### Options
+| Flag                                      	| Shorthand     	| Description                           	|
+|-------------------------------------------	|---------------	|---------------------------------------	|
+| `--generate`                              	| `-g`          	| Generate a new password               	|
+| `--length <number>`                       	| `-l <number>` 	| Set password length (default: 8)      	|
+| `--help`                                  	| `-h`          	| Show help message                     	|
+| For CLI-password-generator-complex Branch 	|               	|                                       	|
+| `--upper`                                 	| `-u`          	| Include uppercase letters             	|
+| `--all`                                   	| `-a`          	| Include letters, numbers, and symbols 	|
 
-Flag	              Shorthand	      Description
---generate	        -g	            Generate a new password
---length <number>	  -l	            Set password length (default: 8)
-
-For CLI-password-generator-complex Branch
-Flag	            Shorthand	        Description
---upper	          -u	              Include uppercase letters
---all	            -a	              Include letters, numbers, and symbols
---help	          -h	              Show help message
-
-License
+## License
 This project is licensed under the MIT License - see the LICENSE file for details.
 
-Security Note: While this tool generates secure passwords, always store passwords using a proper password manager.
+**Security Note:** While this tool generates secure passwords, always store passwords using a proper password manager.
