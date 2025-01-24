@@ -9,7 +9,7 @@
     "type": "git",
     "url": "git+https://github.com/todayisthorsday/CLI-password-generator.git"
   },
-  "keywords": [password generator, CLI],
+  "keywords": ["password", "generator", "CLI"],
   "author": "Melanie Adams",
   "license": "ISC",
   "bugs": {
